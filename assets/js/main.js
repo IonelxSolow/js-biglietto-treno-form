@@ -31,19 +31,25 @@ calcolaPrezzo();
 
 
 document.getElementById("ticketForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+    event.preventDefault(); 
     
-    let km = parseFloat(document.getElementById("km").value); //converte la stringa in numeri decimali
-    let eta = parseInt(document.getElementById("eta").value); //converte la stringa in numeri interi
+    let km = parseFloat(document.getElementById("km").value);
+    let eta = parseInt(document.getElementById("eta").value);
     
     const prezzoKm = 0.21;
     let prezzoTotale = km * prezzoKm;
     
     if (eta < 18) {
-        prezzoTotale *= 0.8; //20% di sconto
+        prezzoTotale *= 0.8; // 20% di sconto
     } else if (eta > 65) {
-        prezzoTotale *= 0.6; //40% di sconto
+        prezzoTotale *= 0.6; // 40% di sconto
     }
     
     document.getElementById("prezzo").innerText = `€${prezzoTotale.toFixed(2)}`;
+
+    document.getElementById("nomePasseggero").innerText = "Jon Snow";
+    document.getElementById("offerta").innerText = "Biglietto Standard";
+    document.getElementById("carrozza").innerText = "5";
+    document.getElementById("codiceCP").innerText = "92911";
+    document.getElementById("costoBiglietto").innerText = `€${prezzoTotale.toFixed(2)}`;
 });
